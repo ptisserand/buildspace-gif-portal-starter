@@ -25,7 +25,19 @@ const App = () => {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
+
+  const connectWallet = async () => {
+
+  };
+
+  const renderNotConnectedContainer = () => (
+    <button
+      className="cta-button connect-wallet-button"
+      onClick={connectWallet}>
+      Connect to wallet
+    </button>
+  );
 
   /*
    * When our component first mounts, let's check to see if we have a connected
@@ -47,6 +59,7 @@ const App = () => {
           <p className="sub-text">
             View your GIF collection in the metaverse ✨
           </p>
+          {renderNotConnectedContainer()}
         </div>
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
