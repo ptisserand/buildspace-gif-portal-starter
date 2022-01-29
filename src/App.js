@@ -6,6 +6,13 @@ import './App.css';
 const TWITTER_HANDLE = 'ptisserand';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
+const TEST_GIFS = [
+  "https://media3.giphy.com/media/3o6UBiAQ9Ws8UWdmqA/giphy.gif",
+  "https://media0.giphy.com/media/26tPplGWjN0xLybiU/giphy.gif",
+  "https://media1.giphy.com/media/4oMoIbIQrvCjm/giphy.gif",
+  "https://media0.giphy.com/media/citBl9yPwnUOs/giphy.gif"
+];
+
 const App = () => {
 
   const [walletAddress, setWalletAddress] = useState(null);
@@ -48,6 +55,23 @@ const App = () => {
     </button>
   );
 
+  const renderConnectedContainer = () => (
+    <div className='connected-container'>
+    <form onSubmit={(event) => {
+      event.preventDefault();
+    }}>
+      <input type='text' placeholder='Enter gif link!'></input>
+      <button type='submit' className='cta-button submit-gif-button'>Submit</button>
+    </form>
+      <div className='gif-grid'>
+        {TEST_GIFS.map(gif => (
+          <div className='gif-item' key={gif}>
+          <img src={gif} alt={gif}/>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
   /*
    * When our component first mounts, let's check to see if we have a connected
    * Phantom Wallet
@@ -64,11 +88,12 @@ const App = () => {
     <div className="App">
       <div className={walletAddress ? "authed-container" : "container"}>
         <div className="header-container">
-          <p className="header">🖼 GIF Portal</p>
+          <p className="header">🖼 Simpsons GIF Portal</p>
           <p className="sub-text">
             View your GIF collection in the metaverse ✨
           </p>
           {!walletAddress && renderNotConnectedContainer()}
+          {walletAddress && renderConnectedContainer()}
         </div>
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
