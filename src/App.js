@@ -26,12 +26,6 @@ const TWITTER_HANDLE = 'ptisserand';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
 // Constants
-const TEST_GIFS = [
-  "https://media3.giphy.com/media/3o6UBiAQ9Ws8UWdmqA/giphy.gif",
-  "https://media0.giphy.com/media/26tPplGWjN0xLybiU/giphy.gif",
-  "https://media1.giphy.com/media/4oMoIbIQrvCjm/giphy.gif",
-  "https://media0.giphy.com/media/citBl9yPwnUOs/giphy.gif"
-];
 
 const App = () => {
 
