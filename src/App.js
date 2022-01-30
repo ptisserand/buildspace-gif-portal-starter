@@ -140,7 +140,7 @@ const App = () => {
             {/* We use index as the key instead, also, the src is now item.gifLink */}
             {gifList.map((item, index) => (
               <div className="gif-item" key={index}>
-                <img src={item.gifLink} />
+                <img src={item.gifLink} alt=""/>
                 <span className='footer-text'>{item.userAddress.toString()}</span>
               </div>
             ))}
@@ -197,6 +197,7 @@ const App = () => {
       console.log('Fetching GIF list');
       getGifList();
     }
+    // eslint-disable-next-line
   }, [walletAddress]);
 
   return (
